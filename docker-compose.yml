@@ -2,13 +2,13 @@
 
 version: "3"
 services:
-  nginx:
-    restart: on-failure
-    image: nginx
-    ports:
-      - 80
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  # nginx:
+  #   restart: on-failure
+  #   image: nginx
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 
   # You do not need this if you have configured to use your own s3 file storage
   minio:
@@ -132,13 +132,13 @@ services:
       - ADMIN_FRONTEND_GOTRUE_URL=${ADMIN_FRONTEND_GOTRUE_URL:-http://gotrue:9999}
       - ADMIN_FRONTEND_APPFLOWY_CLOUD_URL=${ADMIN_FRONTEND_APPFLOWY_CLOUD_URL:-http://appflowy_cloud:8000}
 
-  ai:
-    restart: on-failure
-    image: appflowyinc/appflowy_ai:${APPFLOWY_AI_VERSION:-latest}
-    environment:
-      - OPENAI_API_KEY=${APPFLOWY_AI_OPENAI_API_KEY}
-      - APPFLOWY_AI_SERVER_PORT=${APPFLOWY_AI_SERVER_PORT}
-      - APPFLOWY_AI_DATABASE_URL=${APPFLOWY_AI_DATABASE_URL}
+  # ai:
+  #   restart: on-failure
+  #   image: appflowyinc/appflowy_ai:${APPFLOWY_AI_VERSION:-latest}
+  #   environment:
+  #     - OPENAI_API_KEY=${APPFLOWY_AI_OPENAI_API_KEY}
+  #     - APPFLOWY_AI_SERVER_PORT=${APPFLOWY_AI_SERVER_PORT}
+  #     - APPFLOWY_AI_DATABASE_URL=${APPFLOWY_AI_DATABASE_URL}
 
   appflowy_history:
     restart: on-failure
